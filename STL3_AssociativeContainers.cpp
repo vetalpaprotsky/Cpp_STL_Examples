@@ -27,7 +27,6 @@ void Set()
 
     // First paramenter is a hint for insert() which might decrease insertion time.
     myset.insert(it, 9);
-
     myset.erase(it); // O(1)
     myset.erase(3);  // O(log(n))
 
@@ -50,7 +49,6 @@ void Map()
 
     map<char, int>::iterator it = mymap.begin();
     mymap.insert(it, make_pair('C', 300)); // "it" is a hint.
-
     it = mymap.find('D'); // O(log(n))
 
     if (it == mymap.end())
