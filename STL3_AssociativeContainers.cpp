@@ -7,34 +7,6 @@ using namespace std;
 // Fast search: O(log(n)).
 // Traversing is slow (compared to vector & deque).
 // No random access, no [] operator.
-void Map()
-{
-    map<char, int> mymap;
-    multimap<char, int> mymmap;
-    mymap.insert(pair<char, int>('a', 100));
-    mymap.insert(make_pair('b', 200));
-
-    map<char, int>::iterator it = mymap.begin();
-    mymap.insert(it, make_pair('c', 300)); // "it" is a hint.
-
-    it = mymap.find('d'); // O(log(n))
-
-    if (it == mymap.end())
-        cout << "d - not found" << endl;
-
-    for (const auto& pr : mymap)
-        cout << pr.first << " => " << pr.second << endl;
-    cout << endl;
-
-    for (auto it = mymap.begin(); it != mymap.end(); it++)
-        cout << it->first << " => " << it->second << endl;
-
-    // map/multimap: key of an element cannot be modified.
-}
-
-// Fast search: O(log(n)).
-// Traversing is slow (compared to vector & deque).
-// No random access, no [] operator.
 void Set()
 {
     set<int> myset;
@@ -66,10 +38,38 @@ void Set()
     // set/multiset: value of an element cannot be modified.
 }
 
+// Fast search: O(log(n)).
+// Traversing is slow (compared to vector & deque).
+// No random access, no [] operator.
+void Map()
+{
+    map<char, int> mymap;
+    multimap<char, int> mymmap;
+    mymap.insert(pair<char, int>('A', 100));
+    mymap.insert(make_pair('B', 200));
+
+    map<char, int>::iterator it = mymap.begin();
+    mymap.insert(it, make_pair('C', 300)); // "it" is a hint.
+
+    it = mymap.find('D'); // O(log(n))
+
+    if (it == mymap.end())
+        cout << "D - not found" << endl;
+
+    for (const auto& pr : mymap)
+        cout << pr.first << " => " << pr.second << endl;
+    cout << endl;
+
+    for (auto it = mymap.begin(); it != mymap.end(); it++)
+        cout << it->first << " => " << it->second << endl;
+
+    // map/multimap: key of an element cannot be modified.
+}
+
 int main()
 {
-    Map();
     Set();
+    Map();
 
     return 0;
 }
