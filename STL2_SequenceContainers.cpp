@@ -6,6 +6,14 @@
 
 using namespace std;
 
+template<typename container>
+void Output(const container& cont)
+{
+    for (const auto& el : cont)
+        cout << el << " ";
+    cout << endl;
+}
+
 // Fast insert/remove at the end.
 // Slow insert/remove at the begging or in the middle: O(n).
 // Slow search: O(n).
@@ -41,9 +49,7 @@ void Vector()
     if (vec2.empty())
         cout << "vec2 is empty now" << endl;
 
-    for (const int& num : vec)
-        cout << num << " ";
-    cout << endl;
+    Output(vec);
 }
 
 // Fast insert/remove at any place O(1).
@@ -56,15 +62,11 @@ void List()
     lst.push_front(4); // 4 5 7 9 6
 
     list<int>::iterator itr = find(lst.begin(), lst.end(), 7); // itr -> 7
-    // Insert before itr.
+    // Insert 8 before itr.
     lst.insert(itr, 8); // 4 5 8 7 9 6
-
     itr++; // itr -> 9
     lst.erase(itr); // 4 5 8 7 6
-
-    for (const int& num : lst)
-        cout << num << " ";
-    cout << endl;
+    Output(lst);
 
     // splice funtion.
     // http://www.cplusplus.com/reference/list/list/splice/
@@ -78,7 +80,6 @@ void Deque()
     deque<int> deq = { 4, 6, 7 };
     deq.push_back(2);  // 4 6 7 3
     deq.push_front(3); // 2 4 6 7 3
-
     cout << deq[1] << endl;
 }
 
