@@ -31,9 +31,7 @@ void Iterators()
     auto itr2 = vec.end();
 
     if (itr1 > itr2)
-    {
         cout << "itr1 > itr2" << endl;
-    }
 
     ++itr; // Faster then itr++.
     --itr;
@@ -60,6 +58,7 @@ void Iterators()
 void ConstIterators()
 {
     set<int> myset = { 2, 5, 5, 1, 9, 7, 3, 5, 0 };
+
     for (set<int>::const_iterator citr = myset.cbegin(); citr != myset.cend(); ++citr)
     {
         cout << *citr << " ";
@@ -127,7 +126,6 @@ void Algorithms()
     // Algorithms always process ranges in a half-open way.
     sort(vec.begin(), itr);  // 2 4 5 1 3 9
     reverse(itr, vec.end()); // 2 4 5 9 3 1
-
     cout << *itr << endl;
     Output(vec);
 
