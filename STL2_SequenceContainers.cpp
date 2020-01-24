@@ -6,62 +6,6 @@
 
 using namespace std;
 
-void PrintArray(array<int, 10> a)
-{
-    for (const auto& num : a)
-        cout << num << " ";
-    cout << endl;
-}
-
-void Array()
-{
-    array<int, 10> a = { 1, 2, 3 };
-    cout << a.size() << endl;
-    PrintArray(a);
-
-    array<int, 20> b;
-    b.fill(1);
-
-    // Can not do this. The function accepts a different type.
-    // PrintArray(b);
-}
-
-// Fast insert/remove at the begging and the end.
-// Slow insert/remove in the middle: O(n).
-// Slow search: O(n).
-void Deque()
-{
-    deque<int> deq = { 4, 6, 7 };
-    deq.push_back(2);  // 4 6 7 3
-    deq.push_front(3); // 2 4 6 7 3
-
-    cout << deq[1] << endl;
-}
-
-// Fast insert/remove at any place O(1).
-// Slow search: O(n).
-// No random access, no [] operator.
-void List()
-{
-    list<int> lst = { 5, 7, 9 };
-    lst.push_back(6);  // 5 7 9 6
-    lst.push_front(4); // 4 5 7 9 6
-
-    list<int>::iterator itr = find(lst.begin(), lst.end(), 7); // itr -> 7
-    // Insert before itr.
-    lst.insert(itr, 8); // 4 5 8 7 9 6
-
-    itr++; // itr -> 9
-    lst.erase(itr); // 4 5 8 7 6
-
-    for (const int& num : lst)
-        cout << num << " ";
-    cout << endl;
-
-    // splice funtion.
-    // http://www.cplusplus.com/reference/list/list/splice/
-}
-
 // Fast insert/remove at the end.
 // Slow insert/remove at the begging or in the middle: O(n).
 // Slow search: O(n).
@@ -102,12 +46,68 @@ void Vector()
     cout << endl;
 }
 
+// Fast insert/remove at any place O(1).
+// Slow search: O(n).
+// No random access, no [] operator.
+void List()
+{
+    list<int> lst = { 5, 7, 9 };
+    lst.push_back(6);  // 5 7 9 6
+    lst.push_front(4); // 4 5 7 9 6
+
+    list<int>::iterator itr = find(lst.begin(), lst.end(), 7); // itr -> 7
+    // Insert before itr.
+    lst.insert(itr, 8); // 4 5 8 7 9 6
+
+    itr++; // itr -> 9
+    lst.erase(itr); // 4 5 8 7 6
+
+    for (const int& num : lst)
+        cout << num << " ";
+    cout << endl;
+
+    // splice funtion.
+    // http://www.cplusplus.com/reference/list/list/splice/
+}
+
+// Fast insert/remove at the begging and the end.
+// Slow insert/remove in the middle: O(n).
+// Slow search: O(n).
+void Deque()
+{
+    deque<int> deq = { 4, 6, 7 };
+    deq.push_back(2);  // 4 6 7 3
+    deq.push_front(3); // 2 4 6 7 3
+
+    cout << deq[1] << endl;
+}
+
+void PrintArray(array<int, 10> a)
+{
+    for (const auto& num : a)
+        cout << num << " ";
+    cout << endl;
+}
+
+void Array()
+{
+    array<int, 10> a = { 1, 2, 3 };
+    cout << a.size() << endl;
+    PrintArray(a);
+
+    array<int, 20> b;
+    b.fill(1);
+
+    // Can not do this. The function accepts a different type.
+    // PrintArray(b);
+}
+
 int main()
 {
-    Array();
-    Deque();
-    List();
     Vector();
+    List();
+    Deque();
+    Array();
 
     return 0;
 }
